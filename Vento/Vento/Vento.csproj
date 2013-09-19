@@ -325,7 +325,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\assets\" />
+    <Folder Include="Images\assets\Fotos\Registro\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.Configuration;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,6 +15,42 @@ namespace Vento
 {
     public partial class Registro : System.Web.UI.Page
     {
+        [WebMethod]
+        public static List<string> GetLocations(string hint)
+        {
+            List<string> result = new List<string>();
+            string sConection = WebConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
+            using (SqlConnection sqlCon = new SqlConnection(sConection))
+            {
+                SqlCommand sqlCom = new SqlCommand("select location from [dbo].[locations] where location like 'hint%'", sqlCon);
+                sqlCon.Open();
+                SqlDataReader dr = sqlCom.ExecuteReader();
+                while (dr.Read())
+                {
+                    result.Add(dr[0].ToString());
+                }
+                sqlCon.Close();
+            }
+            return result;
+        }
+        [WebMethod]
+        public static List<string> GetOcupations(string hint)
+        {
+            List<string> result = new List<string>();
+            string sConection = WebConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
+            using (SqlConnection sqlCon = new SqlConnection(sConection))
+            {
+                SqlCommand sqlCom = new SqlCommand("select ocupation from [dbo].[ocupations] where ocupation like 'hint%'", sqlCon);
+                sqlCon.Open();
+                SqlDataReader dr = sqlCom.ExecuteReader();
+                while (dr.Read())
+                {
+                    result.Add(dr[0].ToString());
+                }
+                sqlCon.Close();
+            }
+            return result;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             //this.DatePicker1.Culture = CultureInfo.GetCultureInfo("es-MX");
@@ -18,6 +58,13 @@ namespace Vento
             if (IsPostBack)
             {
                 bool register = true;
+                //Foto
+                if (!fuFoto.HasFile)
+                {
+                    lblFoto.Text = "*";
+                    register = false;
+                }
+                else
                 //Nombre
                 if (txtNombre.Text == "")
                 {
@@ -43,7 +90,7 @@ namespace Vento
                     if (fecha.Length != 3)
                     {
                         register = false;
-                        lblEdad.Text = "*";
+                        lblEdad.Text = "La fecha no tiene los campos correctos: dd/mm/aaaa.";
                     }
                     else
                     {
@@ -55,6 +102,7 @@ namespace Vento
                         if (dt > now.AddYears(-age2)) age2--;
                         if (age2 < 18)
                         {
+                            lblEdad.Text = "Menor de edad.";
                             register = false;
                         }
                     }
@@ -109,10 +157,48 @@ namespace Vento
                 {
                     lblTelefono.Text = "";
                 }
+                int chb1val=0;
+                int chb2val=0;
+                if(chb1.Checked==false && chb2.Checked==false)
+                {
+                    register = false;
+                    lblRegistro.Text = "* Debes registrarte por lo menos en una opción.";
+                }
+                else
+                {
+                    if (chb1.Checked)
+                    {
+                        chb1val = 1;
+                    }
+                    if (chb2.Checked)
+                    {
+                        chb2val = 1;
+                    }
+                }
                 if (register)
                 { 
                     //puede registrarse.
-
+                    //Guardar foto ahora que todos los datos se pueden guardar.
+                    string it = HttpContext.Current.Server.MapPath("~/Images/assets/Fotos/Registro");
+                    DateTime now_foto = System.DateTime.Now;
+                    String foto_name = now_foto.ToString();//.Replace(' ', '');
+                    foto_name = foto_name.Replace('/', ' ');
+                    foto_name = foto_name.Replace(':', ' ');
+                    foto_name = foto_name.Replace("p.m.", " ");
+                    foto_name = foto_name.Replace("a.m.", " ");
+                    foto_name = Regex.Replace(foto_name, @"\s+", "");
+                    string ext = Path.GetExtension(fuFoto.FileName);
+                    string filePath1 = it + "/FOTO_CATALOGO/" + foto_name + ext;
+                    fuFoto.SaveAs(filePath1);
+                    //Foto subida falta guardar.
+                    string sConection = WebConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
+                    using (SqlConnection sqlCon = new SqlConnection(sConection))
+                    {
+                        SqlCommand sqlCom = new SqlCommand("", sqlCon);
+                        sqlCon.Open();
+                        sqlCom.ExecuteNonQuery();
+                        sqlCon.Close();
+                    }
                 }
             }
         

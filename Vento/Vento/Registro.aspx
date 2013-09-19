@@ -11,6 +11,12 @@
     <form id="form1" runat="server">
 <div>
     <p>        
+        <h5>Foto</h5>
+        <h5>
+            <asp:Label ID="lblFoto" runat="server" Text=""></asp:Label>
+        </h5>
+        <asp:Image ID="Image1" ImageUrl="http://placehold.it/100x100" runat="server" />
+        <asp:FileUpload ID="fuFoto" runat="server" /><br />
         <h5>Nombre</h5>
         <h5>
             <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
@@ -64,11 +70,14 @@
         </p>
         <br/>
         <p><b>Registro para participar</b><br />
-            <asp:CheckBox ID="chbActivo" runat="server" />
+            <asp:CheckBox ID="chb1" runat="server" />
         </p>
         <p><b>Registro para seguir las actividades</b><br />
-            <asp:CheckBox ID="CheckBox2" runat="server" />
+            <asp:CheckBox ID="chb2" runat="server" />
         </p>
+        <h5>
+            <asp:Label ID="lblRegistro" runat="server" Text=""></asp:Label>
+        </h5>
         <p>
             <!--<asp:Button ID="btnNext1" CssClass="btn btn-primary" runat="server" Text="Registrar" OnClick="btnNext1_Click" />-->
             <input type="submit" value="Submit" /></p> 
@@ -87,6 +96,48 @@
             $('#lblLimit').html(limit);
             $('textarea#txtExperiencia').val($('textarea#txtExperiencia').val().substring(0,400));
         }
+        $(function () {
+            $("#txtOcupacion").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        url: "Registro.aspx/GetOcupations",
+                        data: "{'hint':'" + document.getElementById('txtOcupation').value + "'}",
+                        dataType: "json",
+                        success: function (data) {
+                            //response(data.d);
+                            alert(data);
+                            console.log(data);
+                        },
+                        error: function (result) {
+                            alert("Error");
+                        }
+                    });
+                }
+            });
+        });
+        $(function () {
+            $("#txtResidence").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        url: "Registro.aspx/GetLocations",
+                        data: "{'hint':'" + document.getElementById('txtResidence').value + "'}",
+                        dataType: "json",
+                        success: function (data) {
+                            //response(data.d);
+                            alert(data);
+                            console.log(data);
+                        },
+                        error: function (result) {
+                            alert("Error");
+                        }
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
