@@ -27,7 +27,7 @@ function close_layers()
     $("#newcontent").css("display","none");	}
 $(document).ready(function () {
     $("body").append('<div id="shady_layer" class="shady_layer"><div id="newcontent" class="new_layer"></div></div>');
-    $("body").prepend('<style> body {overflow-y:hidden;overflow-x:hidden;} #shady_layer{width: 100%; height: 100%; display: block; top: 0; z-index: 10000; background-color: rgba(0,0,0,.5); position: fixed; display: none; } #newcontent{width: 880px; height: 880px; display: block; z-index: 15000; margin: 0 auto; background: #fff; z-index: 15000; position:relative; } .popup{position: relative; } .closertext{position: absolute; width: 42px; height: 42px; top: 0px; background: url(../img/icons/cerrar_popup.png ) no-repeat scroll 0 0 #009ddc; z-index: 1000000; right: -47px; cursor: pointer; top: 0; } .closertext:hover{background-color: #0872ae; } </style>');
+    $("body").prepend('<style> body {overflow-y:hidden;overflow-x:hidden;} #shady_layer{width: 100%; height: 100%; display: block; top: 0; z-index: 10000; background-color: rgba(0,0,0,.5); position: fixed; display: none; } #newcontent{width: 880px; height: auto; display: block; z-index: 15000; margin: 0 auto; background: #fff; z-index: 15000; position:relative; } .popup{position: relative; } .closertext{position: absolute; width: 42px; height: 42px; top: 0px; background: url(../img/icons/cerrar_popup.png ) no-repeat scroll 0 0 #009ddc; z-index: 1000000; right: -47px; cursor: pointer; top: 0; } .closertext:hover{background-color: #0872ae; } </style>');
     $(".chackbox_880").click(function (e) {
         e.preventDefault();
         $("#newcontent").load(

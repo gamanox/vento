@@ -22,13 +22,13 @@ namespace Vento {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblMessage control.
+        /// lblNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.WebControls.Label lblNombre;
         
         /// <summary>
         /// txtNombre control.
@@ -40,6 +40,24 @@ namespace Vento {
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
         
         /// <summary>
+        /// lblEdad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEdad;
+        
+        /// <summary>
+        /// DatePicker1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::SlimeeLibrary.DatePicker DatePicker1;
+        
+        /// <summary>
         /// txtEdad control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace Vento {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEdad;
+        
+        /// <summary>
+        /// lblResidencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResidencia;
         
         /// <summary>
         /// txtResidencia control.
@@ -58,6 +85,15 @@ namespace Vento {
         protected global::System.Web.UI.WebControls.TextBox txtResidencia;
         
         /// <summary>
+        /// lblOcupacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOcupacion;
+        
+        /// <summary>
         /// txtOcupacion control.
         /// </summary>
         /// <remarks>
@@ -65,6 +101,15 @@ namespace Vento {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOcupacion;
+        
+        /// <summary>
+        /// lblExperiencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblExperiencia;
         
         /// <summary>
         /// txtExperiencia control.
@@ -76,6 +121,24 @@ namespace Vento {
         protected global::System.Web.UI.WebControls.TextBox txtExperiencia;
         
         /// <summary>
+        /// lblLimit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLimit;
+        
+        /// <summary>
+        /// lblEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmail;
+        
+        /// <summary>
         /// txtEmail control.
         /// </summary>
         /// <remarks>
@@ -85,6 +148,15 @@ namespace Vento {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
+        /// lblTelefono control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTelefono;
+        
+        /// <summary>
         /// txtTelefono control.
         /// </summary>
         /// <remarks>
@@ -92,15 +164,6 @@ namespace Vento {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
-        
-        /// <summary>
-        /// DatePicker1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SlimeeLibrary.DatePicker DatePicker1;
         
         /// <summary>
         /// chbActivo control.

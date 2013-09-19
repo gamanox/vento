@@ -11,19 +11,20 @@
     <div>
     <p>        
         <h5><asp:Label ID="lblMessage" runat="server" Text=""></asp:Label></h5>
-        <h5>Nombre</h5>
+        <h5>Nombre</h5><asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
         <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
-        <h5>Edad</h5>
+        <h5>Edad</h5><asp:Label ID="lblEdad" runat="server" Text=""></asp:Label>
         <asp:TextBox ID="txtEdad" runat="server"></asp:TextBox>
-        <h5>Lugar de residencia</h5>
+        <h5>Lugar de residencia</h5><asp:Label ID="lblResidencia" runat="server" Text=""></asp:Label>
         <asp:TextBox ID="txtResidencia" runat="server"></asp:TextBox>
-        <h5>Correo electrónico</h5>
+        <h5>Correo electrónico</h5><asp:Label ID="lblEmail" runat="server" Text=""></asp:Label>
         <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-        <h5>Número telefónico</h5>
+        <h5>Número telefónico</h5><asp:Label ID="lblTelefono" runat="server" Text=""></asp:Label>
         <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Button ID="btnNext1" CssClass="btn btn-primary" runat="server" Text="Solicitar" OnClick="btnNext1_Click" />
+            <!--<asp:Button ID="btnNext1" CssClass="btn btn-primary" runat="server" Text="Solicitar" OnClick="btnNext1_Click" />-->
+            <input type="submit" value="Submit" /></p> 
         </p>
     </div>
     </form>

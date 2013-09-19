@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vento
-{
-
-
-    public partial class _Default
-    {
+namespace Vento {
+    
+    
+    public partial class _Default {
     }
 }
